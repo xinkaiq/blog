@@ -92,8 +92,11 @@ tags: [miniprogram]
 ### 全局配置 - <a href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html#networkTimeout">配置networkTimeout</a>
 
 | 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- | --- |
-| request | number | 60000 | wx.request的超时时间，单位：毫秒 |
+| ---- | ---- | ---- | ---- |
+| request | number | 60000 | `wx.request`的超时时间，单位：毫秒 |
+| connectSocket | number | 60000 | `wx.connectSocket`的超时时间，单位：毫秒 |
+| uploadFile | number | 60000 | `wx.uploadFile`的超时时间，单位：毫秒 |
+| downloadFile | number | 60000 | `wx.downloadFile`的超时时间，单位：毫秒 |
 
 ### <a href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html">页面配置（局部配置）</a>
 每一个小程序也可以使用自己的`.json`文件来对本页面的窗口表现进行配置
@@ -146,49 +149,59 @@ NOTE:
 ## 视图结构`wxml`
 - 数据绑定
   - 单个绑定
-    - ```
+    ```
       <view>{{ name }}</view>
-      ```
+    ```
   - object绑定
-    - ```
+    ```
       <view>
         <view>ID: {{ user.id }}</view>
         <view>name: {{ user.name }}</view>
         <view>age: {{ user.age }}</view>
       </view>
-      ```
+    ```
   - list绑定
     - 可以用`wx:for`循环读取。
     - `wx:for-item`可以重命名循环变量名，默认为`item`。
     - `wx:key`可以设置`key`以提高性能
-    - ```
-      <view wx:for="{{ users }}" wx:for-item="user" wx:key="id">
-        <view>[{{ index }}] ID: {{ user.id }}</view>
-        <view>name: {{ user.name }}</view>
-        <view>age: {{ user.age }}</view>
-      </view>
       ```
-  - `wx:if`
-    - `wx:if`语法块中不能参杂其他无关的代码
-    - 
-  - 专门写`wx:`的标签：`<block>`
-    - `<block>`不会出现在dom上面
-    - ```
-      <block wx:for="{{ users }}" wx:for-item="user" wx:key="id">
-        <view>[{{ index }}] ID: {{ user.id }}</view>
-        <view>name: {{ user.name }}</view>
-        <view>age: {{ user.age }}</view>
-      </block>
-      ```
-    - 推荐写法
-    - ```
-      <block wx:for="{{ users }}" wx:for-item="user" wx:key="id">
-        <view>
+        <view wx:for="{{ users }}" wx:for-item="user" wx:key="id">
           <view>[{{ index }}] ID: {{ user.id }}</view>
           <view>name: {{ user.name }}</view>
           <view>age: {{ user.age }}</view>
         </view>
-      </block>
+      ```
+  - `wx:if`
+    - `wx:if`语法块中不能参杂其他无关的代码
+      ```
+        <block wx:if="{{ ... }}">
+          <view>...</view>
+        </block>
+        <block wx:elif="{{ ... }}">
+          <view>...</view>
+        </block>
+        <block wx:else>
+          <view>...</view>
+        </block>
+      ```
+  - 专门写`wx:`的标签：`<block>`
+    - `<block>`不会出现在dom上面
+      ```
+        <block wx:for="{{ users }}" wx:for-item="user" wx:key="id">
+          <view>[{{ index }}] ID: {{ user.id }}</view>
+          <view>name: {{ user.name }}</view>
+          <view>age: {{ user.age }}</view>
+        </block>
+      ```
+    - 推荐写法
+      ```
+        <block wx:for="{{ users }}" wx:for-item="user" wx:key="id">
+          <view>
+            <view>[{{ index }}] ID: {{ user.id }}</view>
+            <view>name: {{ user.name }}</view>
+            <view>age: {{ user.age }}</view>
+          </view>
+        </block>
       ```
 
 - 修改&刷新数据`this.setData({key: value, key: value, ...})`
@@ -274,45 +287,44 @@ NOTE:
     - 解决方法：确保url以`/`开头，即：`<navigator url="/pages/list/list">到商品列表页面</navigator>`
 ### 6. <a href="https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/template.html">`template`组件</a>
 - static：不用`data`
-  - ```
-      <!-- define template -->
-      <template name="msgItemStatic">
-        <view>
-          <view>ID: 1</view>
-          <view>name: kaiikay</view>
-          <view>age: 18</view>
-        </view>
-      </template>
-      <!-- use template -->
-      <template is="msgItemStatic" data="" />
-    ```
+  ```
+    <!-- define template -->
+    <template name="msgItemStatic">
+      <view>
+        <view>ID: 1</view>
+        <view>name: kaiikay</view>
+        <view>age: 18</view>
+      </view>
+    </template>
+    <!-- use template -->
+    <template is="msgItemStatic" data="" />
+  ```
 - dynamic：用`data`
-
-  - ```
-      <!-- define template -->
-      <template name="msgItemDynamic">
-        <view>
-          <view>ID: {{ id }}</view>
-          <view>name: {{ name }}</view>
-          <view>age: {{ age }}</view>
-        </view>
-      </template>
-      
-      <!-- use template -->
-      <template is="msgItemDynamic" data="{{ ...user }}" />
-    ```
+  ```
+    <!-- define template -->
+    <template name="msgItemDynamic">
+      <view>
+        <view>ID: {{ id }}</view>
+        <view>name: {{ name }}</view>
+        <view>age: {{ age }}</view>
+      </view>
+    </template>
+    
+    <!-- use template -->
+    <template is="msgItemDynamic" data="{{ ...user }}" />
+  ```
 
 ### 7. <a href="https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/import.html">`include`组件和`import`组件</a>
 > 动态文件用相对地址；静态文件用绝对地址
 - `include`引用
   - 将此代码块直接复制到需要的地方（ctrl c+v）
-  - ```
+    ```
       <view>--- include ---</view>
       <include src="/template/user.wxml" />
     ```
 - `import`引用
   - 相当于正常引用，可以调用其中某个或者某几个template。（想到于调用参数）
-  - ```
+    ```
       <!-- import -->
       <import src="/template/user-import.wxml" />
       <!-- call -->
@@ -340,16 +352,16 @@ NOTE:
   - `::before`
 - 样式导入
   - 使用`@import`语句可以导入外联样式表
-  - ```
-    @import '/style/font.wxss'
+    ```
+      @import '/style/font.wxss'
     ```
 - 页面全局样式
-  - ```
+  ```
     page {
       background: #888
       ...
     }
-    ```
+  ```
 - 动画：`animate.css`
 
 ### flex
@@ -361,16 +373,16 @@ NOTE:
   - 主轴：`justify-content: flex-start | flex-end | center | space-between | space-around;`
   - 交叉轴：`align-items: flex-start | flex-end | center | stretch | baseline;`
 - 开启`flex`布局（项目变成flex容器）
-  - ```
+  ```
     .class {
       display: flex
     }
-    ```
+  ```
 - 开启`flex`布局以后，子元素的`float`, `clear`和`vertical-align`属性将失效。定位不受影响
 - 水平垂直居中
-  - ```
+  ```
     selector {
       justify-content: center;
       align-items: center;
     }
-    ```
+  ```
