@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>CSS Position | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Position property static (default) relative fixed absolute sticky  1. 静态定位 position: staticHTML elements are positioned static by default.Static positioned elements are not affected by the top, bottom">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS Position">
+<meta property="og:url" content="http://example.com/2024/02/16/CSS-Position/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Position property static (default) relative fixed absolute sticky  1. 静态定位 position: staticHTML elements are positioned static by default.Static positioned elements are not affected by the top, bottom">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-16T16:25:08.000Z">
+<meta property="article:modified_time" content="2024-03-09T06:45:17.154Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="position">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-CSS-Position" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/02/16/CSS-Position/" class="article-date">
+  <time class="dt-published" datetime="2024-02-16T16:25:08.000Z" itemprop="datePublished">2024-02-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      CSS Position
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Position-property"><a href="#Position-property" class="headerlink" title="Position property"></a>Position property</h2><ul>
+<li><code>static</code> (default)</li>
+<li><code>relative</code></li>
+<li><code>fixed</code></li>
+<li><code>absolute</code></li>
+<li><code>sticky</code></li>
+</ul>
+<h2 id="1-静态定位-position-static"><a href="#1-静态定位-position-static" class="headerlink" title="1. 静态定位 position: static"></a>1. 静态定位 <a target="_blank" rel="noopener" href="https://www.w3schools.com/css/css_positioning.asp"><code>position: static</code></a></h2><p>HTML elements are positioned static by default.<br>Static positioned elements are not affected by the <code>top</code>, <code>bottom</code>, <code>left</code>, and <code>right</code> properties.<br>An element with <code>position: static</code>; is not positioned in any special way; it is always positioned according to the normal flow of the page.</p>
+<h2 id="2-相对定位-position-relative"><a href="#2-相对定位-position-relative" class="headerlink" title="2. 相对定位 position: relative"></a>2. 相对定位 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1p84y1P7Z5?p=139"><code>position: relative</code></a></h2><ul>
+<li>可以使用<code>left</code>, <code>right</code>, <code>top</code>, <code>bottom</code>四个属性调整位置。<ul>
+<li>距离<code>left</code>, <code>right</code>, <code>top</code>, <code>bottom</code>有多远。</li>
+<li>e.x.<ol>
+<li><code>left: 100px</code>：距离左边<code>100px</code></li>
+<li><code>right: 100px</code>：距离右边<code>100px</code></li>
+<li><code>top: 100px</code>：距离上边<code>100px</code></li>
+<li><code>bottom: 100px</code>：距离下边<code>100px</code></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>参考点：相对自己<strong>原来的位置</strong></li>
+<li>特点<ol>
+<li>不脱离文档流</li>
+<li>定位元素的显示<strong>层级</strong>比普通元素高，无论什么定位，显示层级都是一样的。<br> 默认规则是：<ul>
+<li>定位的元素会覆盖在普通元素之上。</li>
+<li>都发生定位的两个元素，后写的元素会盖在先写的元素之上</li>
+</ul>
+</li>
+<li><code>left</code>不能和<code>right</code>一起设置，<code>top</code>不能和<code>bottom</code>一起设置.</li>
+<li>相对定位的元素，也能继续浮动，但不推荐这样做。</li>
+<li>相对行为的元素，也能通过<code>margin</code>调整位置，但不推荐这么做<blockquote>
+<p>绝大多数情况下，相对定位，会与绝对定位配合使用。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>E.X.  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.box2 &#123;</span><br><span class="line">    ...</span><br><span class="line">    position: relative; // 开启相对定位</span><br><span class="line">    left: 100px;        // 距离左边100像素</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-绝对定位-position-absolute"><a href="#3-绝对定位-position-absolute" class="headerlink" title="3. 绝对定位 position: absolute"></a>3. 绝对定位 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1p84y1P7Z5?p=140"><code>position: absolute</code></a></h2><ul>
+<li>可以使用<code>left</code>, <code>right</code>, <code>top</code>, <code>bottom</code>四个属性调整位置。</li>
+<li>参考点：相对自己<strong>包含块</strong><blockquote>
+<p>包含块：</p>
+<ol>
+<li>没有脱离文档流的元素，包含块就是父元素。</li>
+<li>脱离文档流的元素，包含块是第一个开启定位的祖先元素。</li>
+</ol>
+</blockquote>
+</li>
+<li>特点<ol>
+<li><strong>脱离文档流</strong></li>
+<li>定位元素的显示<strong>层级</strong>比普通元素高，无论什么定位，显示层级都是一样的。<br> 默认规则是：<ul>
+<li>定位的元素会覆盖在普通元素之上。</li>
+<li>都发生定位的两个元素，后写的元素会盖在先写的元素之上</li>
+</ul>
+</li>
+<li><code>left</code>不能和<code>right</code>一起设置，<code>top</code>不能和<code>bottom</code>一起设置.</li>
+<li>绝对定位和浮动不能同时设置，如果同时设置，浮动失效，以定位为主。</li>
+<li>绝对行为的元素，也能通过<code>margin</code>调整位置，但不推荐这么做。<blockquote>
+<p>定位元素：<br>默认宽高被内容所撑开，且能自由设置宽高。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>E.X.  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.box2 &#123;</span><br><span class="line">    ...</span><br><span class="line">    position: absolute; // 开启相对定位</span><br><span class="line">    left: 100px;        // 距离左边100像素</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="4-固定定位-position-fixed"><a href="#4-固定定位-position-fixed" class="headerlink" title="4. 固定定位 position: fixed"></a>4. 固定定位 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1p84y1P7Z5?p=141"><code>position: fixed</code></a></h2><ul>
+<li>可以使用<code>left</code>, <code>right</code>, <code>top</code>, <code>bottom</code>四个属性调整位置。</li>
+<li>参考点：相对当前<strong>视口</strong><blockquote>
+<p>视口：</p>
+<ol>
+<li>对于PC浏览器来说，视口就是我们看网页的那扇“窗户”。</li>
+</ol>
+</blockquote>
+</li>
+<li>特点<ol>
+<li><strong>脱离文档流</strong></li>
+<li><code>left</code>不能和<code>right</code>一起设置，<code>top</code>不能和<code>bottom</code>一起设置.</li>
+<li>固定定位和浮动不能同时设置，如果同时设置，浮动失效，以定位为主。</li>
+<li>固定行为的元素，也能通过<code>margin</code>调整位置，但不推荐这么做。</li>
+<li>无论是什么元素（行内、行内块、块级）设置为固定定位之后，都变成了定位元素。<blockquote>
+<p>定位元素：</p>
+<ul>
+<li>默认宽高被内容所撑开，且能自由设置宽高。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>E.X.  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.box2 &#123;</span><br><span class="line">    ...</span><br><span class="line">    position: fixed;</span><br><span class="line">    right: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="5-粘性定位-position-sticky"><a href="#5-粘性定位-position-sticky" class="headerlink" title="5. 粘性定位 position: sticky"></a>5. 粘性定位 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1p84y1P7Z5?p=142"><code>position: sticky</code></a></h2><ul>
+<li>可以使用<code>left</code>, <code>right</code>, <code>top</code>, <code>bottom</code>四个属性调整位置，不过最常使用的是<code>top</code>值。</li>
+<li>参考点：离它最近的一个拥有“滚动定位”的祖先元素，即使这个祖先不是最近的真实可滚动祖先。<blockquote>
+<p>视口：</p>
+<ol>
+<li>对于PC浏览器来说，视口就是我们看网页的那扇“窗户”。</li>
+</ol>
+</blockquote>
+</li>
+<li>特点<ol>
+<li>不脱离文档流，专门用于窗口滚动时的新的定位方式。</li>
+<li>最常用的值是<code>top</code>值。</li>
+<li>粘性定位和浮动可以同时设置，但不推荐这样做。</li>
+<li>粘性定位的元素，也可以通过<code>margin</code>调整位置，但不推荐这样做。<blockquote>
+<p>粘性定位和相对定位特点基本一致，不同的是：粘性定位可以在元素到达某个位置（<code>top</code>值）时将其固定。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>E.X.  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.box2 &#123;</span><br><span class="line">    ...</span><br><span class="line">    position: sticky;</span><br><span class="line">    top: 0;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/02/16/CSS-Position/" data-id="cltjqhwtb0000wknxdt1v9qc2" data-title="CSS Position" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/position/" rel="tag">position</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/02/16/CSS-zindex/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CSS zindex
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/02/16/Hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hexo</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/about/" rel="tag">about</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/init/" rel="tag">init</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/" rel="tag">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/miniprogram/" rel="tag">miniprogram</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/" rel="tag">position</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zindex/" rel="tag">zindex</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/about/" style="font-size: 10px;">about</a> <a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/init/" style="font-size: 10px;">init</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/miniprogram/" style="font-size: 20px;">miniprogram</a> <a href="/tags/position/" style="font-size: 20px;">position</a> <a href="/tags/zindex/" style="font-size: 10px;">zindex</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/09/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/03/MiniProgram/">MiniProgram</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/03/Interview-MiniProgram/">Interview MiniProgram</a>
+          </li>
+        
+          <li>
+            <a href="/2024/02/22/Interview-Java/">Interview Java</a>
+          </li>
+        
+          <li>
+            <a href="/2024/02/18/SQL-NULL/">SQL NULL</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
